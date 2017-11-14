@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">驴妈妈</string>
+    <string name="app_home">主页</string>
+    <string name="app_class">分类</string>
+    <string name="app_cart">购物车</string>
+    <string name="app_user">个人</string>
+    <string name="app_a">商品：0</string>
+    <string name="app_b">店铺：0</string>
+    <string name="app_c">我的足迹</string>
+    <string name="app_Number">未登录</string>
+    <string name="app_FullOrder">全部订单</string>
+    <string name="app_MyProperty">我的财产</string>
+    <string name="app_Address">收货地址</string>
+    <string name="app_Settings">系统设置</string>
+    <string name="app_Fk">未付款</string>
+    <string name="app_Fh">待发货</string>
+    <string name="app_Sh">待收货</string>
+    <string name="app_Pj">待评价</string>
+    <string name="app_Kh">退款/货</string>
+    <string name="app_fK">预付款</string>
+    <string name="app_cZ">充值卡</string>
+    <string name="app_dJ">代金券</string>
+    <string name="app_hB">红包</string>
+    <string name="app_jF">积分</string>
+    <string name="activityHot">热门活动</string>
+    <string name="personal_zi1">个人资料</string>
+    <string name="personal_tbtx">淘宝头像</string>
+    <string name="personal_hym">会员名</string>
+    <string name="personal_tbnc">淘宝昵称</string>
+    <string name="personal_ewm">我的二维码名片</string>
+    <string name="personal_xb">性别</string>
+    <string name="setting_shdz">我的收获地址</string>
+    <string name="setting_zhzq">账号与安全</string>
+    <string name="setting_dqsz">地区设置</string>
+    <string name="setting_yxtz">音效与通知</string>
+    <string name="setting_ys">隐私</string>
+    <string name="setting_ty">通用</string>
+    <string name="setting_xm">我的小蜜</string>
+    <string name="setting_gysjtb">关于手机淘宝</string>
+    <string name="setting_tcdqzh">退出当前账户</string>
+    <string name="setting_sz">设置</string>
+
+</resources>

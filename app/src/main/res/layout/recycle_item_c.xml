@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <com.youth.banner.Banner
+        android:id="@+id/mybbanner"
+        android:layout_width="match_parent"
+        android:layout_height="150dp">
+    </com.youth.banner.Banner>
+    <TextView
+        android:text="热门专题"
+        android:textSize="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rmzt"
+        />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_launcher"
+        android:id="@+id/img_b2"
+        android:layout_marginTop="-30dp"
+        />
+</LinearLayout>

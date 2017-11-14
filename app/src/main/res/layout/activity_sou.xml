@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_sou"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".home.view.SouActivity">
+    <EditText
+        android:id="@+id/app_sou"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Searching..."
+        />
+    <ListView
+        android:id="@+id/app_sou_list"
+        android:layout_below="@id/app_sou"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </ListView>
+
+</RelativeLayout>
