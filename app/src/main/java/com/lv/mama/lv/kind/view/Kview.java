@@ -1,7 +1,7 @@
 package com.lv.mama.lv.kind.view;
 
-import com.lv.mama.lv.kind.bean.DataleftBean;
-import com.lv.mama.lv.kind.bean.DatarightBean;
+import com.lv.mama.lv.kind.bean.KindBean;
+import com.lv.mama.lv.kind.bean.RightBean;
 
 import java.util.List;
 
@@ -10,7 +10,6 @@ import java.util.List;
  */
 
 public interface Kview {
-    void getKdata(List<DataleftBean.DatasBean.ClassListBean> class_list);
-    void getKdatas(List<DatarightBean.DatasBean.ClassListBean> class_list);
-//    void getServerData();
+    void getleft(List<KindBean.DataBean> data);
+    void getright(List<RightBean.DataBean> data);
 }

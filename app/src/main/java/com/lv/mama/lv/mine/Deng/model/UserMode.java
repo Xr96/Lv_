@@ -5,7 +5,7 @@ import com.lv.mama.lv.client.ApiServer;
 import com.lv.mama.lv.mine.Deng.bean.DengBean;
 import com.lv.mama.lv.mine.Deng.bean.ZhuBean;
 
-import java.util.HashMap;
+import java.util.Map;
 
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
@@ -21,11 +21,27 @@ import rx.schedulers.Schedulers;
 
 public class UserMode implements IUserModel {
 
+    public interface onMFinsh{
+        void getCode(DengBean.DataBean data,String msg);
+    }
+    private onMFinsh onfinsh;
+
+    public void setonfinsh(onMFinsh onfinsh) {
+        this.onfinsh = onfinsh;
+    }
+    public interface onregMFinsh{
+        void getreg(String msg);
+    }
+    private onregMFinsh onregfinsh;
+
+    public void setregFinsh(onregMFinsh onregfinsh) {
+        this.onregfinsh = onregfinsh;
+    }
     @Override
-    public void Login(String url,HashMap<String,String> map) {
+    public void Success(String str, Map<String, String> map) {
         Retrofit retrofit = new Retrofit.Builder().baseUrl(Api.TYPE_MINE_DENG).addConverterFactory(GsonConverterFactory.create()).addCallAdapterFactory(RxJavaCallAdapterFactory.create()).build();
         ApiServer apiServer = retrofit.create(ApiServer.class);
-        Observable<DengBean> postpage = apiServer.postpage(url, map);
+        Observable<DengBean> postpage = apiServer.postpage(str, map);
         postpage.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<DengBean>() {
@@ -42,16 +58,17 @@ public class UserMode implements IUserModel {
                     @Override
                     public void onNext(DengBean dengBean) {
                         String code = dengBean.getMsg().toString();
-                        getusermodel.getUser(code);
+                        DengBean.DataBean data = dengBean.getData();
+                        onfinsh.getCode(data,code);
                     }
                 });
     }
 
     @Override
-    public void Resele(String url, HashMap<String, String> map) {
+    public void Register(String str, Map<String, String> map) {
         Retrofit retrofit = new Retrofit.Builder().baseUrl(Api.TYPE_MINE_DENG).addConverterFactory(GsonConverterFactory.create()).addCallAdapterFactory(RxJavaCallAdapterFactory.create()).build();
         ApiServer apiServer = retrofit.create(ApiServer.class);
-        Observable<ZhuBean> postzhu = apiServer.postzhu(url, map);
+        Observable<ZhuBean> postzhu = apiServer.postzhu(str, map);
         postzhu.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<ZhuBean>() {
@@ -68,17 +85,8 @@ public class UserMode implements IUserModel {
                     @Override
                     public void onNext(ZhuBean zhuBean) {
                         String code = zhuBean.getMsg().toString();
-                        getusermodel.getUser(code);
+                        onregfinsh.getreg(code);
                     }
                 });
-    }
-
-    public interface getUserModel{
-        void getUser(String msg);
-    }
-    public getUserModel getusermodel;
-
-    public void setondata(getUserModel getusermodel) {
-        this.getusermodel = getusermodel;
     }
 }

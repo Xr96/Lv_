@@ -1,10 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    android:background="@color/lemonchiffon"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <TextView
-        android:layout_width="wrap_content"
+        android:textColor="@color/orange"
+        android:textSize="28sp"
+        android:text="购物车"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <ExpandableListView
+        android:id="@+id/cart_expandable_view"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </ExpandableListView>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="cart"
-        />
+        >
+        <CheckBox
+            android:gravity="center"
+            android:layout_weight="3"
+            android:id="@+id/cart_check_all"
+            android:text="全选"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <ViewFlipper
+            android:inAnimation="@anim/anim_marquee_in"
+            android:outAnimation="@anim/anim_marquee_out"
+            android:flipInterval="5000"
+            android:layout_weight="2"
+            android:id="@+id/cart_view_flipper"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:id="@+id/cart_text_all"
+            android:text="￥0.00"
+            android:layout_weight="3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/cart_button_delete"
+            android:textColor="@color/white"
+            android:background="@color/orange"
+            android:text="删除"
+            android:layout_width="match_parent"
+            android:layout_weight="3"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/cart_button_buy"
+            android:textColor="@color/white"
+            android:background="@color/new_red"
+            android:text="购买"
+            android:layout_width="match_parent"
+            android:layout_weight="3"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
 </LinearLayout>

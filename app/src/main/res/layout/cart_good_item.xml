@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="horizontal"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:paddingLeft="30dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <CheckBox
+        android:id="@+id/cart_good_check"
+        android:gravity="center_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="150dp" />
+    <ImageView
+        android:id="@+id/cart_good_img"
+        android:src="@mipmap/ic_launcher"
+        android:scaleType="center"
+        android:layout_width="100dp"
+        android:layout_height="150dp" />
+    <FrameLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="150dp">
+        <LinearLayout
+            android:id="@+id/cart_good_item_layout_normal"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:textColor="@color/black"
+                android:text="三只松鼠 坚果炒货 零食奶油味 碧根果225g/袋"
+                android:id="@+id/cart_good_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_marginTop="5dp"
+                android:text="三只松鼠零食特惠，专区满99减50，满199减100，火速抢购》"
+                android:id="@+id/cart_good_subhead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:text="新钱"
+                    android:gravity="bottom"
+                    android:textSize="22sp"
+                    android:textColor="@color/orange"
+                    android:id="@+id/cart_good_item_money_now"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+                <TextView
+                    android:text="老钱"
+                    android:gravity="bottom"
+                    android:id="@+id/cart_good_item_money_old"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+                <TextView
+                    android:gravity="end"
+                    android:id="@+id/cart_good_item_num"
+                    android:text="数量"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <Button
+                    android:id="@+id/cart_good_item_editor"
+                    android:text="编辑"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/cart_good_item_layout_editor"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/cart_good_item_jian"
+                android:text="-"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+            <TextView
+                android:id="@+id/cart_good_item_num_editoring"
+                android:text="5"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+            <TextView
+                android:id="@+id/cart_good_item_jia"
+                android:text="+"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+            <Button
+                android:id="@+id/cart_good_item_finish"
+                android:layout_weight="1"
+                android:text="完成"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+    </FrameLayout>
+</LinearLayout>

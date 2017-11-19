@@ -36,6 +36,20 @@ public class XRAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         this.list=data;
     }
     /*
+    * 点击事件
+    * */
+    public interface OnItemClickLitener
+    {
+        void onItemClick(View view, int position);
+    }
+
+    private OnItemClickLitener mOnItemClickLitener;
+
+    public void setOnItemClickLitener(OnItemClickLitener mOnItemClickLitener)
+    {
+        this.mOnItemClickLitener = mOnItemClickLitener;
+    }
+    /*
     * 创建viewholder
     * */
     @Override
@@ -76,12 +90,13 @@ public class XRAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     * 绑定数据：可以直接拿到已经绑定的控件viewholder对象
     * */
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(final RecyclerView.ViewHolder holder, int position) {
         if (holder instanceof ViewHolderA){
             mlist=new ArrayList();
             for (int i=0;i<list.getAd1().size();i++){
                 mlist.add(list.getAd1().get(i).getImage());
             }
+
             //设置图片加载器
             ((ViewHolderA)holder).mbanner.setImageLoader(new GlideImageLoader());
             ((ViewHolderA)holder).mbanner.setImages(mlist);
@@ -119,7 +134,18 @@ public class XRAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             }
             ((ViewHolderE)holder).rd.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
             ((ViewHolderE)holder).rd.setAdapter(new ViewHolderEa(list.getDefaultGoodsList(),mcontext));
+//            if (mOnItemClickLitener != null) {
+//                ((ViewHolderE) holder).rd.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//
+//                        int pos = holder.getLayoutPosition();
+//                        mOnItemClickLitener.onItemClick(((ViewHolderE) holder).rd, pos);
+//                    }
+//                });
+//            }
         }
+
     }
 
     @Override
@@ -185,6 +211,7 @@ public class XRAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         public ViewHolderE(View itemView) {
             super(itemView);
             rd = (RecyclerView) itemView.findViewById(R.id.id_recyclerviewd);
+
         }
     }
     class ViewHolderF extends RecyclerView.ViewHolder{

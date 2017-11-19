@@ -226,6 +226,7 @@
             />
     </RelativeLayout>
     <Button
+        android:id="@+id/setting_th"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:text="@string/setting_tcdqzh"

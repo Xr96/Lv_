@@ -73,13 +73,25 @@ public class MainActivity extends FragmentActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        rb1.setChecked(true);
-        FragmentTransaction ft1 = fm.beginTransaction();
-        ft1.show(fragment1);
-        ft1.hide(fragment2);
-        ft1.hide(fragment3);
-        ft1.hide(fragment4);
-        ft1.commit();
+        isLogin = (boolean) SharedPreferencesUtils.getParam(MainActivity.this, "islog", false);
+        if(isLogin==false){
+            rb1.setChecked(true);
+            FragmentTransaction ft1 = fm.beginTransaction();
+            ft1.show(fragment1);
+            ft1.hide(fragment2);
+            ft1.hide(fragment3);
+            ft1.hide(fragment4);
+            ft1.commit();
+        }else {
+            rb4.setChecked(true);
+            FragmentTransaction ft1 = fm.beginTransaction();
+            ft1.show(fragment4);
+            ft1.hide(fragment2);
+            ft1.hide(fragment3);
+            ft1.hide(fragment1);
+            ft1.commit();
+        }
+
     }
 
     @OnClick({R.id.rb1, R.id.rb2, R.id.rb3, R.id.rb4})
@@ -94,23 +106,35 @@ public class MainActivity extends FragmentActivity {
                 ft1.commit();
                 break;
             case R.id.rb2:
-                FragmentTransaction ft2 = fm.beginTransaction();
-                ft2.show(fragment2);
-                ft2.hide(fragment1);
-                ft2.hide(fragment3);
-                ft2.hide(fragment4);
-                ft2.commit();
+                isLogin = (boolean) SharedPreferencesUtils.getParam(MainActivity.this, "islog", false);
+                if(isLogin){
+                    FragmentTransaction ft2 = fm.beginTransaction();
+                    ft2.show(fragment2);
+                    ft2.hide(fragment1);
+                    ft2.hide(fragment3);
+                    ft2.hide(fragment4);
+                    ft2.commit();
+                }else {
+                    startActivity(new Intent(MainActivity.this, DengActivity.class));
+                }
+
                 break;
             case R.id.rb3:
-                 FragmentTransaction ft3 = fm.beginTransaction();
-                 ft3.show(fragment3);
-                 ft3.hide(fragment1);
-                 ft3.hide(fragment2);
-                 ft3.hide(fragment4);
-                 ft3.commit();
-                 break;
+                isLogin = (boolean) SharedPreferencesUtils.getParam(MainActivity.this, "islog", false);
+                if(isLogin){
+                    FragmentTransaction ft3 = fm.beginTransaction();
+                    ft3.show(fragment3);
+                    ft3.hide(fragment1);
+                    ft3.hide(fragment2);
+                    ft3.hide(fragment4);
+                    ft3.commit();
+
+                }else {
+                    startActivity(new Intent(MainActivity.this, DengActivity.class));
+                }
+                break;
             case R.id.rb4:
-                isLogin = (boolean) SharedPreferencesUtils.getParam(MainActivity.this, "isLogin", false);
+                isLogin = (boolean) SharedPreferencesUtils.getParam(MainActivity.this, "islog", false);
                 if(isLogin){
                     FragmentTransaction ft4 = fm.beginTransaction();
                     ft4.show(fragment4);
@@ -118,10 +142,11 @@ public class MainActivity extends FragmentActivity {
                     ft4.hide(fragment1);
                     ft4.hide(fragment2);
                     ft4.commit();
-                    break;
+
                 }else {
                     startActivity(new Intent(MainActivity.this, DengActivity.class));
                 }
+                break;
         }
     }
 }

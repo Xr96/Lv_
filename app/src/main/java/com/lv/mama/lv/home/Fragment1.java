@@ -112,5 +112,13 @@ public class Fragment1 extends Fragment implements Hview {
     public void getData(HomeBean.DataBean data) {
         adapter=new XRAdapter(getActivity(),data);
         xr.setAdapter(adapter);
+        /*adapter.setOnItemClickLitener(new XRAdapter.OnItemClickLitener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                Toast.makeText(getActivity(), "点击了", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(), ClistActivity.class);
+                startActivity(intent);
+            }
+        });*/
     }
 }

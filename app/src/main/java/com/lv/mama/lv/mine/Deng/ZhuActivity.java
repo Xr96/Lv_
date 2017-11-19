@@ -6,9 +6,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.lv.mama.lv.R;
+import com.lv.mama.lv.mine.Deng.bean.DengBean;
 import com.lv.mama.lv.mine.Deng.presenter.UserPresenter;
 import com.lv.mama.lv.mine.Deng.view.IUserView;
 import com.lv.mama.lv.utils.ToastUtil;
@@ -52,22 +52,24 @@ public class ZhuActivity extends AppCompatActivity implements IUserView {
         HashMap<String,String> map=new HashMap<>();
         map.put("mobile",name);
         map.put("password",pass);
-        userpresenter.getdaTa("reg",map);
-    }
-    @Override
-    public void onLoginYes(String msg) {
+        userpresenter.getreg("reg",map);
 
     }
+
 
     @Override
-    public void onLoginNo(String msg) {
-        if (msg.equals("注册成功")) {
-            ToastUtil.show(ZhuActivity.this, msg,Toast.LENGTH_SHORT);
-            finish();
-        } else {
-            ToastUtil.show(ZhuActivity.this, msg, Toast.LENGTH_SHORT);
-        }
+    public void Success(String msg) {
+        ToastUtil.showShort(ZhuActivity.this,msg);
+        finish();
     }
 
+    @Override
+    public void LoginSuccess(DengBean.DataBean data, String msg) {
 
+    }
+    //注册失败
+    @Override
+    public void Filde(String msg) {
+        ToastUtil.showShort(ZhuActivity.this,msg);
+    }
 }

@@ -2,6 +2,7 @@ package com.lv.mama.lv.home.adapter;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.lv.mama.lv.ClistActivity;
 import com.lv.mama.lv.R;
 import com.lv.mama.lv.home.bean.HomeBean;
 
@@ -42,7 +44,13 @@ public class ViewHolderAa extends RecyclerView.Adapter<ViewHolderAa.MyViewHolder
         holder.img.setImageURI(uri);
         /*ImageLoader instance = ImageLoader.getInstance();
         instance.displayImage(lists.get(position).getImage(),holder.img);*/
-
+        holder.img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mc, ClistActivity.class);
+                mc.startActivity(intent);
+            }
+        });
 
     }
 
